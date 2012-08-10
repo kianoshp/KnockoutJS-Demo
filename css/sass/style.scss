@@ -1,0 +1,130 @@
+@import "partials/_variables";
+@import "functions/_responsive-font-size";
+@import "partials/_mixins";
+@import "partials/_normalize-mixins";
+@import "normalize";
+
+/* ==|== primary styles =====================================================
+   Author:
+   ========================================================================== */
+p {
+	font-size: rfs(12);
+}
+
+body {
+	@include add-margin(left, 40px);
+	header {
+		input#search {
+			@include add-border(all, 3px, solid, #EEE);
+			width: 500px;
+			height: 40px;
+			font-size: rfs(24);
+			@include add-border-radius();
+			background: url(#{$baseUrl}search.png) no-repeat center right;
+			background-size: 64px 64px;
+		}
+	}
+
+	#main {
+		@include add-margin(top, 40px);
+		
+		#results {
+			min-height: 200px;
+			width: 60%;
+			float: left;
+			clear: both;
+			li {
+				display: inline-table;
+				padding: 5px;
+				div.imgResult {
+					position: relative;
+					overflow: hidden;
+					@include add-border(all, 1px, solid, black);
+					width: 75px;
+					height: 75px;
+					img {
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+				}
+			}
+		}
+		
+		#favs {
+			@include add-border(all, 1px, solid, #CCC);
+			@include add-margin(left, 65%);
+			min-height: 200px;
+			max-height: 500px;
+			overflow: auto;
+			width: 200px;
+			.header {
+				height: 20px;
+				padding: 10px;
+				@include text-stroke();
+			}
+			ul {
+				padding: 10px;
+				li {
+					display: inline-table;
+					padding-bottom: 5px;
+				}
+
+			}
+		}
+
+	}
+
+	footer {
+		padding-top: 40px;
+		clear: both;
+		color: #CCC;
+		//position: absolute;
+		bottom: 2px;
+		width: 100%;
+		font {
+			size: rfs(10);
+		}
+
+		.logo {
+			@include add-margin(right, 240px);
+			@include add-margin(bottom, 80px);
+		}
+	}
+}
+
+.tabs {
+	width: 30px;
+	height: 25px;
+	@include add-border-radius(bottom-left, 5px);
+	@include add-border-radius(bottom-right, 5px);
+	background-color: #5E5E5E;
+	float: right;
+	padding: 2px;
+	padding-left: 20px;
+	img {
+		@include handCursor;
+	}
+}
+
+.flt-left {
+	float:left;
+}
+
+.flt-right {
+	float:right;
+}
+
+.header {
+	@include linear-gradient(top, #E0E0E0, #303030);
+}
+
+.moreInfo {
+	background-color: #5E5E5E;
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+}
+
+@import "partials/_media-queries";
+@import "helper";
+@import "partials/_print";
